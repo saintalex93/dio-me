@@ -1,0 +1,14 @@
+defer faz o script rodar depois que o html foi carregado
+
+
+tsc --init : cria um arquivo de configuração typescript
+ "watch":"tsc --watch" - Fica escutando a compilação
+
+ tipo :never um código que não finalizou
+
+ tipo any aceita qualquer tipo
+
+ tipo unknown para ser atribuido tem que fazer validação de typeof daquele tipo
+
+ criar tipo:
+ type myType = number | string
