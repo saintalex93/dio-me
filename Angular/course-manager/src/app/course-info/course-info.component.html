@@ -1,0 +1,68 @@
+<h2 class="text-secondary text-center">Informações do Curso:</h2>
+<hr>
+
+<form #courseForm="ngForm" *ngIf="course.name">
+
+  <div class="form-group row mb-2">
+    <label class="col-sm-2 col-form-label fw-bold text-secondary">Nome:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="name" required
+             [(ngModel)]="course.name"
+             #courseName="ngModel"
+             [ngClass]="{'is-invalid': courseName.invalid}">
+
+      <div class="invalid-feedback">
+        <span>O nome do curso é obrigatório</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row mb-2">
+    <label class="col-sm-2 col-form-label fw-bold text-secondary">Preço:</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" name="price" required
+             [(ngModel)]="course.price"
+             #coursePrice="ngModel"
+             [ngClass]="{'is-invalid': coursePrice.invalid}">
+
+      <div class="invalid-feedback">
+        <span>O preço do curso é obrigatório</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row mb-2">
+    <label class="col-sm-2 col-form-label fw-bold text-secondary">Avaliações:</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" name="rating" required
+             [(ngModel)]="course.rating"
+             #courseRating="ngModel"
+             [ngClass]="{'is-invalid': courseRating.invalid}">
+
+      <div class="invalid-feedback">
+        <span>A avaliação do curso é obrigatória</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row mb-2">
+    <label class="col-sm-2 col-form-label fw-bold text-secondary">Descrição:</label>
+    <div class="col-sm-10">
+      <textarea type="text" class="form-control" name="description" required
+                [(ngModel)]="course.description"
+                #courseDescription="ngModel"
+                [ngClass]="{'is-invalid': courseDescription.invalid}" style="resize: none"></textarea>
+
+      <div class="invalid-feedback">
+        <span>A descrição do curso é obrigatória</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons text-center">
+    <button class="btn btn-primary" [disabled]="courseForm.invalid" (click)="save()">Salvar</button>
+    <button class="btn btn-secondary m-2" [routerLink]="['/courses']">Voltar</button>
+  </div>
+
+</form>
+

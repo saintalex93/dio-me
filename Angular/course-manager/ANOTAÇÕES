@@ -1,0 +1,21 @@
+ng new nome-projeto (Cria novo projeto angular)
+ng serve - sobe a aplicação na porta 4200
+
+
+{{name}} = Interpolação
+
+DataBinds 
+[ngModel]="name" (OneWayDatabind) - Só ira exibir e não será refletido na variavel
+[(ngModel)]="name" (TwoWayDatabind) - Será refletido na variável
+
+Para definir um component:
+O selector é o nome da diretiva a qual iremos injetar, com o template ou templateUrl;
+É necessário importar no app.module, no objeto declarions
+@Component({
+    selector: 'app-course-list',
+    // template: '<h2> {{title}} </h2>'
+    templateUrl: './course-list.template.html'
+})
+
+~ significa raiz
+@import '~bootstrap/dist/css/bootstrap.css'
