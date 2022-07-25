@@ -1,29 +1,60 @@
-// Abaixo segue um exemplo de código que você pode ou não utilizar
-import java.io.IOException;
-import java.util.Scanner;
+package com.br.dio.designpatternsspring.controller;
 
-public class Desafio
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.br.dio.designpatternsspring.model.Client;
+import com.br.dio.designpatternsspring.service.ClientService;
+
+@RestController
+@RequestMapping( "client" )
+public class ClientController
 {
-    public static void main(
-        final String[] args )
-        throws IOException
+
+    @Autowired
+    private ClientService clientService;
+
+    @GetMapping
+    public ResponseEntity<Iterable<Client>> findAll()
     {
-        final Scanner leitor = new Scanner( System.in );
-        int cont = 0;
-        double soma = 0;
-        int n = leitor.nextInt();
+        return ResponseEntity.ok( clientService.findAll() );
+    }
 
-        // TODO: Complete os espaços em branco com uma possível solução para o
-        // desafio
+    @GetMapping( "/{id}" )
+    public ResponseEntity<Client> findById(
+        @PathVariable final Long id )
+    {
+        return ResponseEntity.ok( clientService.findById( id ) );
+    }
 
-        while( n >= 1 ) {
-            if( n >= 0 ) {
-                soma += n;
-                cont++;
-            }
-            n = leitor.nextInt();
-        }
-        final double media = soma / cont;
-        System.out.println( String.format( "%.2f", media ) );
+    @PostMapping
+    public ResponseEntity<Client> save(
+        @RequestBody final Client client )
+    {
+        return ResponseEntity.ok( clientService.save( client ) );
+    }
+
+    @PutMapping( "/{id}" )
+    public ResponseEntity<Client> update(
+        @PathVariable final Long id,
+        @RequestBody final Client client )
+    {
+        return ResponseEntity.ok( clientService.update( id, client ) );
+    }
+
+    @DeleteMapping( "/{id}" )
+    public ResponseEntity<Void> delete(
+        @PathVariable final Long id )
+    {
+        clientService.delete( id );
+        return ResponseEntity.ok().build();
     }
 }
