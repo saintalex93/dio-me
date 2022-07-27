@@ -3,10 +3,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 
-var currentUser;
 
 var corsOptions = {
-  orgim: '/',
+  origin: '/',
   optionsSuccessStatus: 200
 }
 
@@ -48,7 +47,7 @@ app.route('/api/courses/:id').get((request, response) => {
   response.status(200).send(COURSES.find(courseIterator => courseIterator.id === courseId));
 });
 
-app.route('/api/courses/:id').delete((request, response)=> {
+app.route('/api/courses/:id').delete((request, response) => {
   const courseId = +request.params['id'];
   COURSES = COURSES.filter(courseIterator => courseIterator.id !== courseId);
 
