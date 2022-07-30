@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "a1dad361-d39d-4226-aa26-ef4f8218d4a4",
+		"name": "JWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NTkxNDA2NjUsImV4cCI6MTY1OTE0NDI2NSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSUyIsIlJPTEVfTUFOQUdFUlMiXX0.HXdWLthh9I2aftd9rRHohbPLWHyy8fhnCAEi22yQAJgjTcFgk3hHohjYD6hILY0qpd0owLvqOQi3sHYuJpEIiQ",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"username\":\"alex\",\r\n   \"password\":\"alex\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NTkxNDA2NjUsImV4cCI6MTY1OTE0NDI2NSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSUyIsIlJPTEVfTUFOQUdFUlMiXX0.HXdWLthh9I2aftd9rRHohbPLWHyy8fhnCAEi22yQAJgjTcFgk3hHohjYD6hILY0qpd0owLvqOQi3sHYuJpEIiQ",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\":\"Alex\",\r\n   \"username\":\"alex\",\r\n   \"password\":\"alex\",\r\n   \"roles\":[\"USERS\",\"MANAGERS\"] \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NTkxNDA2NjUsImV4cCI6MTY1OTE0NDI2NSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSUyIsIlJPTEVfTUFOQUdFUlMiXX0.HXdWLthh9I2aftd9rRHohbPLWHyy8fhnCAEi22yQAJgjTcFgk3hHohjYD6hILY0qpd0owLvqOQi3sHYuJpEIiQ",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"username\":\"alex\",\r\n   \"password\":\"alex\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NTkxNDA2NjUsImV4cCI6MTY1OTE0NDI2NSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSUyIsIlJPTEVfTUFOQUdFUlMiXX0.HXdWLthh9I2aftd9rRHohbPLWHyy8fhnCAEi22yQAJgjTcFgk3hHohjYD6hILY0qpd0owLvqOQi3sHYuJpEIiQ",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
