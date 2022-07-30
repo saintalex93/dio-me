@@ -1,10 +1,10 @@
-package com.br.dio.bootstarter;
+package br.com.dio.jwt;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BootstarterApplicationTests {
+class JwtApplicationTests {
 
 	@Test
 	void contextLoads() {
