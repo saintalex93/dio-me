@@ -8,8 +8,31 @@
   <!-- Diretivas estruturais -->
   <h2 class="text-danger" *ngIf="count === 6; else menor">Jequiti</h2>
 
-<ng-template #menor>
-  <h2 class="text-muted">Hinode</h2>
-</ng-template>
+  <ng-template #menor>
+    <h2 class="text-muted">Hinode</h2>
+  </ng-template>
+
+  <ul [ngSwitch]="count" class="list-group mx-auto col-3">
+    <li class="list-group-item" *ngSwitchCase="1" appTextMarker backgroundColor="whitesmoke" textColor="tomato">1 Count</li>
+    <li class="list-group-item" *ngSwitchCase="5">5 Count</li>
+    <li class="list-group-item" *ngSwitchDefault>Default</li>
+  </ul>
+
+  <ul class="list-group mx-auto col-3 mt-5">
+    <li class="list-group-item" *ngFor="let person of persons">{{person.name}} {{person.lastName}}</li>
+
+    <ng-template ngFor let-person [ngForOf]="persons">
+      <li class="list-group-item">FullDirective: {{person.name}} {{person.lastName}}</li>
+    </ng-template>
+  </ul>
+<div class="row">
+  <div class="col-xs-6">
+    <input type="text" name="name" class="form-control" placeholder="Digite algo" [(ngModel)]="text">
+    <h4 appTextMarker backgroundColor="whitesmoke" textColor="tomato">Saída: {{text}}</h4>
+  </div>
+</div>
+
+
+  <button class="btn btn-success" (click)="clicked('teste')">Log</button>
 
 </div>

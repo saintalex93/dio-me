@@ -2,3 +2,6 @@
 /dio-digital-bank/*.project
 /dio-digital-bank/*.classpath
 /dio-digital-bank/.settings/*.prefs
+.angular
+node_modules
+.project

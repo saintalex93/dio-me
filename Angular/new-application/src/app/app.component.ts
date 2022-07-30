@@ -7,6 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   count = 0;
+  text: string = '';
+  persons = [
+    {
+      name: "Alex",
+      lastName: "Santos"
+    },
+    {
+      name: "Mathias",
+      lastName: "Santos"
+    },
+    {
+      name: "Théo",
+      lastName: "Santos"
+    },
+    {
+      name: "Cristine",
+      lastName: "Fogaça"
+    },
+  ];
+  clicked(name: string): void {
+    console.log(`${name} click`);
+  }
+
 
   constructor() {
 
@@ -22,4 +45,6 @@ export class AppComponent implements OnInit {
     }, 1000)
 
   }
+
+
 }
