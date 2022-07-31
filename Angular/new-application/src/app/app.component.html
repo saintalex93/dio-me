@@ -18,13 +18,8 @@
     <li class="list-group-item" *ngSwitchDefault>Default</li>
   </ul>
 
-  <ul class="list-group mx-auto col-3 mt-5">
-    <li class="list-group-item" *ngFor="let person of persons">{{person.name}} {{person.lastName}}</li>
+  <app-list-persons [persons]="persons"></app-list-persons>
 
-    <ng-template ngFor let-person [ngForOf]="persons">
-      <li class="list-group-item">FullDirective: {{person.name}} {{person.lastName}}</li>
-    </ng-template>
-  </ul>
 <div class="row">
   <div class="col-xs-6">
     <input type="text" name="name" class="form-control" placeholder="Digite algo" [(ngModel)]="text">
