@@ -1,0 +1,11 @@
+<mat-list-item role="listitem">
+    <span [ngStyle]="{textDecoration: todo.done ? 'line-through':''}">
+        {{todo.title}}
+    </span>
+    <button mat-icon-button aria-label="Marcar como concluído" (click)="markAsDone()">
+        <mat-icon>done</mat-icon>
+    </button>
+    <button mat-raised-button color="warn" aria-label="Deletar todo" (click)="removeTodo()">
+        <mat-icon>delete</mat-icon>
+    </button>
+</mat-list-item>

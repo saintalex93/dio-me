@@ -25,9 +25,12 @@ export class UserFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(params => {
-      this.userId = params.get('id')
-    })
+    this.activatedRoute.paramMap.subscribe(
+      {
+        next: params => {
+          this.userId = params.get('id')
+        }
+      })
 
     if (this.userId !== null) {
       this.userService.getUser(this.userId).subscribe(result => {
@@ -43,14 +46,14 @@ export class UserFormComponent implements OnInit {
   }
 
   createUser() {
-    this.userForm.get('id')?.patchValue(this.userService.getUserIndex() + 1)
+    this.userForm.get('id')?.patchValue(Number(this.userService.getUserIndex()) + 1)
     this.userService.createUser(this.userForm.value).subscribe(result => {
       Swal.fire(
         'Sucesso!',
         `O Usuário foi cadastrado!`,
         'success'
       )
-      this.userService.setUserIndex(this.userService.getUserIndex() + 1)
+      this.userService.setUserIndex(Number(this.userService.getUserIndex()) + 1)
     }, (err) => {
       Swal.fire(
         'Erro!',
