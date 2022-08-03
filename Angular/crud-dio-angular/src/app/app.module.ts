@@ -1,5 +1,5 @@
 import { LoaderModule } from './components/loader/loader.module';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID, DEFAULT_CURRENCY_CODE } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 
@@ -18,7 +18,16 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { TodoItemComponent } from './pages/todo/todo-item/todo-item.component'
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+import { PipesExampleComponent } from './pages/pipes-example/pipes-example.component';
+import { UpperCasePipe } from '@angular/common';
+
+import ptBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+import { PrintListPipe } from './print-list.pipe';
+import { DataBindingComponent } from './pages/data-binding/data-binding.component';
+
+registerLocaleData(ptBr);
 
 
 @NgModule({
@@ -29,6 +38,9 @@ import {MatIconModule} from '@angular/material/icon';
     UserFormComponent,
     TodoListComponent,
     TodoItemComponent,
+    PipesExampleComponent,
+    PrintListPipe,
+    DataBindingComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +57,11 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+    UpperCasePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
